@@ -8,7 +8,7 @@ public class Password
     {
         if (string.IsNullOrEmpty(value) || value.Length < 3)
         {
-            throw new InvalidUsernameException();
+            throw new InvalidPasswordException();
         }
 
         Value = value;

@@ -8,7 +8,7 @@ public class User
     public Username Username {get; set;}
 
     
-    private readonly HashSet<UserId> _followers = new HashSet<UserId>();
+    public readonly HashSet<UserId> _followers  = new HashSet<UserId>();
 
     public Password Password {get; set;}
 
@@ -29,6 +29,11 @@ public class User
         {
             this._followers.Remove(followerId);
         }
+    }
+
+    public HashSet<UserId> GetFollowers()
+    {
+        return this._followers;
     }
     
 
