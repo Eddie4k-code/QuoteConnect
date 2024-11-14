@@ -46,21 +46,21 @@ jobs:
           make get_changed_files changed_files="${{ steps.changed-files.outputs.all_changed_files }}"
 
 
-      run-service-unit-tests:
-        strategy:
-          matrix:
-            service_name: ${{ fromJson(needs.changed-files.outputs.files_matrix) }}
-        needs:
-          - changed-files
-        steps:
-          - uses: actions/checkout@v4
-          - name: Setup .NET
-            uses: actions/setup-dotnet@v4
-            with:
-              dotnet-version: 8.0.x
-            - name: Restore Dependencies, Build and Test
-              run: |
-                cd ${{ matrix.service_name }}/${{ matrix.service_name }}.UnitTests
-                dotnet restore
-                dotnet build --no-restore
-                dotnet test --no-build --verbosity normal
+  run-service-unit-tests:
+    strategy:
+      matrix:
+        service_name: ${{ fromJson(needs.changed-files.outputs.files_matrix) }}
+    needs:
+      - changed-files
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+        - name: Restore Dependencies, Build and Test
+          run: |
+            cd ${{ matrix.service_name }}/${{ matrix.service_name }}.UnitTests
+            dotnet restore
+            dotnet build --no-restore
+            dotnet test --no-build --verbosity normal
