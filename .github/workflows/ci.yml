@@ -45,15 +45,16 @@ jobs:
         run: |
           make get_changed_files changed_files="${{ steps.changed-files.outputs.all_changed_files }}"
 
-
   run-service-unit-tests:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         service_name: ${{ fromJson(needs.changed-files.outputs.files_matrix) }}
     needs:
       - changed-files
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v2
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
