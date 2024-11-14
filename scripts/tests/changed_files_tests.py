@@ -12,16 +12,16 @@ class TestGetChangedFiles(unittest.TestCase):
         self.assertCountEqual(changed_files.get_changed_files(files), [])
 
     def test_some_matching_services(self):
-        files = ["auth-service/file1.txt", "order-service/file2.txt", "unrelated/file3.txt"]
-        self.assertCountEqual(changed_files.get_changed_files(files), ["auth-service", "order-service"])
+        files = ["UserService/file1.txt", "UserService/file2.txt", "unrelated/file3.txt"]
+        self.assertCountEqual(changed_files.get_changed_files(files), ["UserService"])
 
     def test_all_matching_services(self):
-        files = ["auth-service/file1.txt", "sneaker-service/file2.txt", "order-service/file3.txt"]
-        self.assertCountEqual(changed_files.get_changed_files(files), ["auth-service", "sneaker-service", "order-service"])
+        files = ["UserService/file1.txt", "UserService/file2.txt", "UserService/file3.txt"]
+        self.assertCountEqual(changed_files.get_changed_files(files), ["UserService"])
 
     def test_duplicate_services(self):
-        files = ["auth-service/file1.txt", "auth-service/file2.txt"]
-        self.assertCountEqual(changed_files.get_changed_files(files), ["auth-service"])
+        files = ["UserService/file1.txt", "UserService/file2.txt"]
+        self.assertCountEqual(changed_files.get_changed_files(files), ["UserService"])
 
 if __name__ == "__main__":
     unittest.main()
