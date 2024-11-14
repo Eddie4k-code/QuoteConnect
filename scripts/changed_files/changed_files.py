@@ -8,7 +8,7 @@ import sys
 
 files = sys.argv[1:]
 
-services = set(["auth-service", "sneaker-service", "order-service", "payment-service"])
+services = set(["UserService"])
 
 """
 Generates a matrix of service names returning an array of strings

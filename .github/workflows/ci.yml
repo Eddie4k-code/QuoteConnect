@@ -46,6 +46,7 @@ jobs:
           make get_changed_files changed_files="${{ steps.changed-files.outputs.all_changed_files }}"
 
   run-service-unit-tests:
+    if: ${{ needs.changed-files.outputs.files_matrix != '[]' }}s
     runs-on: ubuntu-latest
     strategy:
       matrix:
