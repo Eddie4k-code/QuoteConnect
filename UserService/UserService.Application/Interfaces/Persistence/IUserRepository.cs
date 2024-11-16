@@ -11,9 +11,9 @@ namespace UserService.Application.Interfaces.Persistence
     public interface IUserRepository
     {
 
-        void CreateUser(string email, string password);
+        public User CreateUser(string email, string password);
 
-        User GetUser(string email);
+        public User GetUser(string email);
 
     }
 }
