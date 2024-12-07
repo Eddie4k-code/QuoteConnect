@@ -21,6 +21,8 @@ namespace UserService.UnitTests
 
         public UserServiceTests() {
             var jwtSettings = Options.Create(new JwtSettings());
+            jwtSettings.Value.Key = "hweofhiowgerhioegwriohgewrhoieg8h329";
+            jwtSettings.Value.Issuer = "issuer";
             this._userService = new AuthenticationService(_userRepositoryMock.Object, new JwtCreator(jwtSettings));
         }
 
