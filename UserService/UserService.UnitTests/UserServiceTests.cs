@@ -9,6 +9,7 @@ using UserService.Application.Results;
 using UserService.Application.Services;
 using UserService.Domain.Entities;
 using UserService.Domain.ValueObjects;
+using UserService.Infrastructure.Authentication;
 namespace UserService.UnitTests
 {
     public class UserServiceTests
@@ -17,7 +18,7 @@ namespace UserService.UnitTests
         private readonly Mock<IUserRepository> _userRepositoryMock = new Mock<IUserRepository>();
 
         public UserServiceTests() {
-            this._userService = new AuthenticationService(_userRepositoryMock.Object);
+            this._userService = new AuthenticationService(_userRepositoryMock.Object, new JwtCreator());
         }
 
         [Fact]
