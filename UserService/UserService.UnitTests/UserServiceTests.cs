@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Castle.Core.Logging;
+using Microsoft.Extensions.Options;
 using Moq;
 using UserService.Application.Interfaces.Persistence;
 using UserService.Application.Results;
@@ -16,9 +17,11 @@ namespace UserService.UnitTests
     {
         private readonly IAuthenticationService _userService;
         private readonly Mock<IUserRepository> _userRepositoryMock = new Mock<IUserRepository>();
+        
 
         public UserServiceTests() {
-            this._userService = new AuthenticationService(_userRepositoryMock.Object, new JwtCreator());
+            var jwtSettings = Options.Create(new JwtSettings());
+            this._userService = new AuthenticationService(_userRepositoryMock.Object, new JwtCreator(jwtSettings));
         }
 
         [Fact]
