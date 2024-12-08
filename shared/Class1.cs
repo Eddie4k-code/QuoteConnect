@@ -1,6 +1,8 @@
-﻿namespace shared;
+﻿using Microsoft.AspNetCore.Diagnostics;
 
-public class Class1
-{
+namespace shared;
+
+public class Class1 
+{ 
 
 }
