@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UserService.Infrastructure.Authentication;
+using Microsoft.EntityFrameworkCore;
+using UserService.Infrastructure.Persistence.Context;
 
 namespace UserService.Infrastructure
 {
@@ -17,6 +19,12 @@ namespace UserService.Infrastructure
             var JwtSettings = new JwtSettings();
             
             config.Bind("Jwt", JwtSettings);
+
+
+            services.AddDbContext<UserDatabaseContext>(options => 
+            {
+                options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            });
 
             return services;
         }        
