@@ -36,7 +36,7 @@ namespace UserService.UnitTests
             };
 
 
-            this._userRepositoryMock.Setup(x => x.GetUser(user.Username.Value)).Returns(user);
+            this._userRepositoryMock.Setup(x => x.GetUser(user.Username.Value)).ReturnsAsync(user);
 
             var loggedInUser = this._userService.Login(user.Username.Value, user.Password.Value);
 
