@@ -23,19 +23,19 @@ namespace UserService.Application.Services
             this._jwtCreator = jwtCreator;
         }
 
-        public UserResult Register(string username, string password)
+        public async Task<UserResult> Register(string username, string password)
         {
 
-            var user = this._userRepository.CreateUser(username, password);
+            var user = await this._userRepository.CreateUser(username, password);
 
             return new UserResult(user.Id, user.Username, this._jwtCreator.CreateJwt(user));
 
         }
 
-        public UserResult Login(string username, string password)
+        public async Task<UserResult> Login(string username, string password)
         {
 
-            var user = this._userRepository.GetUser(username) ?? throw new InvalidLogin();
+            var user = await this._userRepository.GetUser(username) ?? throw new InvalidLogin();
 
             if (user.Password.Value == password) {
                 return new UserResult(user.Id, user.Username, this._jwtCreator.CreateJwt(user));

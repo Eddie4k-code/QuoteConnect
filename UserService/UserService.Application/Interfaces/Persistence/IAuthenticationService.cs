@@ -10,8 +10,8 @@ namespace UserService.Application.Interfaces.Persistence
     public interface IAuthenticationService
     {
 
-        UserResult Register(string username, string password);
+        Task<UserResult> Register(string username, string password);
 
-        UserResult Login(string username, string password);
+        Task<UserResult> Login(string username, string password);
     }
 }
