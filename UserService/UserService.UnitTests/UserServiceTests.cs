@@ -27,7 +27,7 @@ namespace UserService.UnitTests
         }
 
         [Fact]
-        public void Login_ShouldReturnUser_IfUserExistsAndCorrectPassword()
+        public async Task Login_ShouldReturnUser_IfUserExistsAndCorrectPassword()
         {
             
             var user = new User{
@@ -38,7 +38,7 @@ namespace UserService.UnitTests
 
             this._userRepositoryMock.Setup(x => x.GetUser(user.Username.Value)).ReturnsAsync(user);
 
-            var loggedInUser = this._userService.Login(user.Username.Value, user.Password.Value);
+            var loggedInUser = await this._userService.Login(user.Username.Value, user.Password.Value);
 
             Assert.Equal(loggedInUser.UserId.Value, user.Id.Value);
 
