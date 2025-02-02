@@ -1,5 +1,7 @@
 using UserService.Domain.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
+[Owned]
 public class Password
 {
     public string Value {get; private set;}

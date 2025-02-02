@@ -27,7 +27,7 @@ namespace UserService.Infrastructure.Authentication
         {
             var claims = new []{
                 new Claim(JwtRegisteredClaimNames.Sub, user.Username.Value),
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id.Value.ToString())
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString())
             };
 
              var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this._jwtSettings.Key));

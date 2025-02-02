@@ -1,10 +1,13 @@
 using UserService.Domain.ValueObjects;
 
 namespace UserService.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 public class User
 {
-    public UserId Id {get; set;} = new UserId(Guid.NewGuid());
+    [Key]
+    public Guid Id {get; set;} = Guid.NewGuid();
     public Username Username {get; set;}
 
     

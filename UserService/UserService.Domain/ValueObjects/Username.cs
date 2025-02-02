@@ -1,5 +1,8 @@
 using UserService.Domain.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
+
+[Owned]
 public class Username
 {
     public string Value {get; private set;}
