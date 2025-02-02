@@ -11,7 +11,7 @@ public class User
     public Username Username {get; set;}
 
     
-    public readonly HashSet<UserId> _followers  = new HashSet<UserId>();
+    public readonly HashSet<Guid> _followers  = new HashSet<Guid>();
 
     public Password Password {get; set;}
 
