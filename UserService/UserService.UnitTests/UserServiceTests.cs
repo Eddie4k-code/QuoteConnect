@@ -40,7 +40,7 @@ namespace UserService.UnitTests
 
             var loggedInUser = await this._userService.Login(user.Username.Value, user.Password.Value);
 
-            Assert.Equal(loggedInUser.UserId.Value, user.Id.Value);
+            Assert.Equal(loggedInUser.UserId, user.Id);
 
 
 
