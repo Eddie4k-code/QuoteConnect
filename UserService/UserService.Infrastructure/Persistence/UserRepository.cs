@@ -1,10 +1,10 @@
-namespace UserDomain.Persistence;
+namespace UserService.Infrastructure.Persistence;
 
 using System.Threading.Tasks;
 using UserService.Application.Interfaces.Persistence;
 using UserService.Infrastructure.Persistence.Context;
 using UserService.Domain.Entities;
- using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 public class UserRepository : IUserRepository
 {
 

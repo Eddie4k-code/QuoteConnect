@@ -8,6 +8,9 @@ using Microsoft.Extensions.DependencyInjection;
 using UserService.Infrastructure.Authentication;
 using Microsoft.EntityFrameworkCore;
 using UserService.Infrastructure.Persistence.Context;
+using UserService.Infrastructure.Persistence;
+using UserService.Application.Interfaces.Persistence;
+using UserService.Application.Interfaces.Authentication;
 
 namespace UserService.Infrastructure
 {
@@ -19,6 +22,10 @@ namespace UserService.Infrastructure
             var JwtSettings = new JwtSettings();
             
             config.Bind("Jwt", JwtSettings);
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IJwtCreator, JwtCreator>();
+            services.AddScoped<IPasswordHasher, BCryptPasswordHasher>();
 
 
             services.AddDbContext<UserDatabaseContext>(options => 

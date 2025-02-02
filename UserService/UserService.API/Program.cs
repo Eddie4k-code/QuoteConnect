@@ -1,4 +1,5 @@
 using UserService.Infrastructure;
+using UserService.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //add infra services
 builder.Services.AddInfraServices(builder.Configuration);
+builder.Services.RegisterApplicationServices();
 
 
 
