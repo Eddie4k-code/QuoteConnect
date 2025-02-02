@@ -17,7 +17,7 @@ public class User
 
 
     /* Follow another user */
-    public void Follow(UserId followerId)
+    public void Follow(Guid followerId)
     {
         if (!this._followers.Contains(followerId))
         {
@@ -26,7 +26,7 @@ public class User
     }
 
     /* Unfollow a user */
-    public void Unfollow(UserId followerId)
+    public void Unfollow(Guid followerId)
     {
         if (this._followers.Contains(followerId))
         {
@@ -34,7 +34,7 @@ public class User
         }
     }
 
-    public HashSet<UserId> GetFollowers()
+    public HashSet<Guid> GetFollowers()
     {
         return this._followers;
     }
