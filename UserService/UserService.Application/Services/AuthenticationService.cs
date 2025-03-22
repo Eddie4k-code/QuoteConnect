@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UserService.Application.Exceptions;
 using UserService.Application.Interfaces;
 using UserService.Application.Interfaces.Authentication;
 using UserService.Application.Interfaces.Persistence;
 using UserService.Application.Results;
-using UserService.Domain.Entities;
+using shared.CustomExceptions;
 
 namespace UserService.Application.Services
 {
