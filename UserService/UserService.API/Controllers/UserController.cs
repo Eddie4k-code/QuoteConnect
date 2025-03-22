@@ -17,8 +17,11 @@ namespace UserService.API.Controllers
         }
 
         [HttpPost]
+        
         public async Task<UserResult> Login(string username, string password)
         {
+
+            
             return await _userService.Login(username, password);
         }  
     }
