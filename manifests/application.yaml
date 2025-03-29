@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: 'https://github.com/Eddie4k-code/QuoteConnect.git'
     targetRevision: HEAD
-    path: manifests/dev
+    path: manifests/application
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
